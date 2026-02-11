@@ -33,16 +33,16 @@ EOT
     location                      = string
     name                          = string
     resource_group_name           = string
-    input_schema                  = optional(string, "EventGridSchema")
-    local_auth_enabled            = optional(bool, true)
-    public_network_access_enabled = optional(bool, true)
+    input_schema                  = optional(string) # Default: "EventGridSchema"
+    local_auth_enabled            = optional(bool)   # Default: true
+    public_network_access_enabled = optional(bool)   # Default: true
     tags                          = optional(map(string))
     identity = optional(object({
       identity_ids = optional(set(string))
       type         = string
     }))
     inbound_ip_rule = optional(list(object({
-      action  = optional(string, "Allow")
+      action  = optional(string) # Default: "Allow"
       ip_mask = string
     })))
     input_mapping_default_values = optional(object({
