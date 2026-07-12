@@ -1,3 +1,7 @@
+output "eventgrid_topics_id" {
+  description = "Map of id values across all eventgrid_topics, keyed the same as var.eventgrid_topics"
+  value       = { for k, v in azurerm_eventgrid_topic.eventgrid_topics : k => v.id }
+}
 output "eventgrid_topics_endpoint" {
   description = "Map of endpoint values across all eventgrid_topics, keyed the same as var.eventgrid_topics"
   value       = { for k, v in azurerm_eventgrid_topic.eventgrid_topics : k => v.endpoint }
